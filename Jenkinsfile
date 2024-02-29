@@ -5,6 +5,7 @@ pipeline {
       steps {
         echo 'Placeholder'
         sh 'echo Edited Placeholder'
+        sh 'echo Build Success!'
       }
     }
 

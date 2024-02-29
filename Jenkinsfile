@@ -10,6 +10,7 @@ pipeline {
     stage('Buzz Test Stage') {
       steps {
         sh './jenkins/test-all.sh'
+        archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
       }
     }
 

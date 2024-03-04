@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('Buzz Build Stage') {
       steps {
-        sh './jenkins/build.sh'
+        sh '''echo "I am a ${BUZZ_NAME}"
+./jenkins/build.sh'''
       }
     }
 
@@ -14,5 +15,8 @@ pipeline {
       }
     }
 
+  }
+  environment {
+    BUZZ_NAME = 'Worker Bee'
   }
 }

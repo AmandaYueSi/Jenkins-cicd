@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Buzz Build Stage') {
       steps {
-        sh '''echo "I am a ${BUZZ_NAME}"
+        sh '''echo I am a $BUZZ_NAME
 ./jenkins/build.sh'''
       }
     }

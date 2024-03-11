@@ -1,18 +1,10 @@
 pipeline {
   agent any
-  tools {
-    // Replace 'JDK_17' with the name you configured in Global Tool Configuration
-    jdk 'JDK17'
-  }
   stages {
     stage('Buzz Build Stage') {
       parallel {
         stage('Build Java 17') {
           steps {
-            script {
-              env.JAVA_HOME = "/home/ubuntu/.jdks/corretto-17.0.10"
-              env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
-            }
             sh './jenkins/build.sh'
             stash(name: 'Buzz java 17', includes: 'target/**')
           }

@@ -5,7 +5,6 @@ pipeline {
       parallel {
         stage('Build Java 17') {
           steps {
-            echo $JAVA_HOME
             sh './jenkins/build.sh'
             stash(name: 'Buzz java 17', includes: 'target/**')
           }

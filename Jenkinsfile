@@ -7,6 +7,7 @@ pipeline {
           steps {
             sh './jenkins/build.sh'
             stash(name: 'Buzz java 17', includes: 'target/**')
+            echo '$JAVA_HOME'
           }
         }
 

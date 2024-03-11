@@ -4,7 +4,7 @@
 set -e
 
 # Optional: Set JAVA_HOME path if not already set
-# export JAVA_HOME=/path/to/your/java/home
+export JAVA_HOME=/home/ubuntu/.jdks/corretto-17.0.10
 
 # Clean and build the project
 echo "Cleaning the project..."

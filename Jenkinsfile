@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  tools {
+    // Replace 'JDK_17' with the name you configured in Global Tool Configuration
+    jdk 'JDK17'
+  }
   stages {
     stage('Buzz Build Stage') {
       parallel {

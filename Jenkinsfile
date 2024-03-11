@@ -23,16 +23,44 @@ pipeline {
 
     stage('Buzz Test Stage') {
       parallel {
-        stage('Buzz Test Stage') {
+        stage('Testing A 17') {
           steps {
+            unstash 'Buzz java 17'
             sh './jenkins/test-all.sh'
           }
         }
 
-        stage('Testing B') {
+        stage('Testing B 17') {
           steps {
+            unstash 'Buzz java 17'
             sh '''sleep 10
 echo done'''
+          }
+        }
+
+        stage('Testing A 11') {
+          agent {
+            node {
+              label 'java11'
+            }
+
+          }
+          steps {
+            unstash 'Buzz java 11'
+            sh './jenkins/test-all.sh'
+          }
+        }
+
+        stage('Testing B 11') {
+          agent {
+            node {
+              label 'java11'
+            }
+
+          }
+          steps {
+            unstash 'Buzz java 11'
+            sh './jenkins/test-all.sh'
           }
         }
 

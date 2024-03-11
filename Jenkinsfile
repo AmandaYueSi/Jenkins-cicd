@@ -9,6 +9,10 @@ pipeline {
       parallel {
         stage('Build Java 17') {
           steps {
+            script {
+              env.JAVA_HOME = "/home/ubuntu/.jdks/corretto-17.0.10"
+              env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+            }
             sh './jenkins/build.sh'
             stash(name: 'Buzz java 17', includes: 'target/**')
           }

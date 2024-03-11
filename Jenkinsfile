@@ -12,8 +12,8 @@ pipeline {
 
         stage('Build Java 11') {
           steps {
-            stash(name: 'Buzz java 11', includes: 'target/**')
             sh './jenkins/build.sh'
+            stash(name: 'Buzz java 11', includes: 'target/**')
           }
         }
 

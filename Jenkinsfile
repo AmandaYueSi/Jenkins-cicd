@@ -5,9 +5,7 @@ pipeline {
       parallel {
         stage('Build Java 17') {
           steps {
-            echo "I am a ${BUZZ_NAME}"
             sh './jenkins/build.sh'
-            archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
             stash(name: 'Buzz java 17', includes: 'target/**')
           }
         }

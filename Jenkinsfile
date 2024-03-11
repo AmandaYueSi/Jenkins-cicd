@@ -4,10 +4,6 @@ pipeline {
     // Replace 'JDK_17' with the name you configured in Global Tool Configuration
     jdk 'JDK17'
   }
-  environment {
-      JAVA_HOME = '/home/ubuntu/.jdks/corretto-17.0.10'
-      PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
-  }
   stages {
     stage('Buzz Build Stage') {
       parallel {

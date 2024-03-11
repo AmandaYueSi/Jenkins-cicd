@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Buzz Build Stage') {
       parallel {
-        stage('Buzz Build Stage') {
+        stage('Build Java 17') {
           steps {
             echo "I am a ${BUZZ_NAME}"
             sh './jenkins/build.sh'
@@ -15,6 +15,7 @@ pipeline {
         stage('Build Java 11') {
           steps {
             stash(name: 'Buzz java 11', includes: 'target/**')
+            sh './jenkins/build.sh'
           }
         }
 
@@ -24,6 +25,12 @@ pipeline {
     stage('Buzz Test Stage') {
       parallel {
         stage('Testing A 17') {
+          agent {
+            node {
+              label 'java17'
+            }
+
+          }
           steps {
             unstash 'Buzz java 17'
             sh './jenkins/test-all.sh'
@@ -31,6 +38,12 @@ pipeline {
         }
 
         stage('Testing B 17') {
+          agent {
+            node {
+              label 'java17'
+            }
+
+          }
           steps {
             unstash 'Buzz java 17'
             sh '''sleep 10

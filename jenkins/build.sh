@@ -3,6 +3,9 @@
 # Stop the script if any command fails
 set -e
 
+java -version
+mvn -version
+
 # Optional: Set JAVA_HOME path if not already set
 # export JAVA_HOME=/path/to/your/java/home
 

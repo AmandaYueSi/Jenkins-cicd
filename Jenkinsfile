@@ -2,6 +2,7 @@ pipeline {
   agent any
   environment {
     JAVA_HOME = '/home/ubuntu/.jdks/corretto-17.0.10'
+    BUZZ_NAME = 'Worker Bee'
   }
   stages {
     stage('Buzz Build Stage') {
@@ -88,8 +89,5 @@ echo done'''
       }
     }
 
-  }
-  environment {
-    BUZZ_NAME = 'Worker Bee'
   }
 }

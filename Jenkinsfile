@@ -2,15 +2,7 @@ pipeline {
   agent any
   stages {
     stage('Build Java 17') {
-      agent {
-        node {
-          label 'java17'
-        }
-
-      }
-      environment {
-        JAVA_HOME = '/home/ubuntu/.jdks/corretto-17.0.10'
-      }
+      agent any
       steps {
         sh 'echo $JAVA_HOME'
         sh './jenkins/build.sh'

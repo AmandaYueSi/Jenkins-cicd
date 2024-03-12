@@ -4,7 +4,10 @@
 set -e
 
 # Optional: Set JAVA_HOME path if not already set
-export JAVA_HOME=/home/ubuntu/.jdks/corretto-17.0.10
+if [ ! -d "$JAVA_HOME" ]; then
+    export JAVA_HOME/home/ubuntu/.jdks/corretto-17.0.10
+fi
+echo "Using JAVA_HOME at $JAVA_HOME"
 
 # Clean and build the project
 echo "Cleaning the project..."

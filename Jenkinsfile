@@ -8,6 +8,11 @@ pipeline {
     stage('Buzz Build Stage') {
       parallel {
         stage('Build Java 17') {
+          agent {
+            node {
+              label 'java17'
+            }
+          }
           steps {
             sh 'echo $JAVA_HOME'
             sh './jenkins/build.sh'

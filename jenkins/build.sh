@@ -3,6 +3,8 @@
 # Stop the script if any command fails
 set -e
 
+java -version
+
 mvn -version
 # Clean and build the project
 echo "Cleaning the project..."

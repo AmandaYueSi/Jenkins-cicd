@@ -5,7 +5,7 @@ set -e
 
 # Optional: Set JAVA_HOME path if not already set
 if [ ! -d "$JAVA_HOME" ]; then
-    export JAVA_HOME/home/ubuntu/.jdks/corretto-17.0.10
+    export JAVA_HOME=/home/ubuntu/.jdks/corretto-17.0.10
 fi
 echo "Using JAVA_HOME at $JAVA_HOME"
 

@@ -1,11 +1,14 @@
 pipeline {
   agent any
+  environment {
+    JAVA_HOME = '/home/ubuntu/.jdks/corretto-17.0.10'
+  }
   stages {
     stage('Buzz Build Stage') {
       parallel {
         stage('Build Java 17') {
           steps {
-            echo  "JAVA_HOME is: ${env.JAVA_HOME}"
+            sh 'echo $JAVA_HOME'
             sh './jenkins/build.sh'
             stash(name: 'Buzz java 17', includes: 'target/**')
           }

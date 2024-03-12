@@ -5,10 +5,7 @@ set -e
 
 # Clean and build the project
 echo "Cleaning the project..."
-mvn clean
-
-echo "Building the project..."
-mvn package
+mvn clean package -e
 
 # Optionally, you can include a command to run the application
 # echo "Running the application..."
